@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Ice Cream Brands</title>
+  </head>
+  <body>
+    <div id='root'></div>
+    <script type='text/babel'>
+      class App extends React.Component {
+          constructor() {
+              super();
+              this.state = {
+                  brands: []
+              }
+          }
+          async ComponentDidMount() {
+              const response = await axios.get('/api/icecream');
+              const brands = response.data
+              console.log(brands)
+          }
+          render() {
+              const brands = this.state.brands;
+              return (
+                  <div>
+                    <h1>I Scream, You Scream, We all Scream for Ice Cream!{brands.length}</h1>
+                  </div>
+              )
+          }
+      }
+      const root = document.querySelector('#root');
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
