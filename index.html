@@ -17,16 +17,27 @@
                   brands: []
               }
           }
-          async ComponentDidMount() {
+          async componentDidMount() {
               const response = await axios.get('/api/icecream');
-              const brands = response.data
-              console.log(brands)
+              const brands = response.data;
+              this.setState({ brands });
           }
           render() {
               const brands = this.state.brands;
               return (
                   <div>
-                    <h1>I Scream, You Scream, We all Scream for Ice Cream!{brands.length}</h1>
+                    <h1>I Scream, You Scream, We All Scream for Ice Cream!</h1>
+                    <ul>
+                      {
+                        brands.map( brand => {
+                          return (
+                            <li>
+                              { brand.name }
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
                   </div>
               )
           }
