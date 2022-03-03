@@ -24,24 +24,23 @@
               const brands = response.data;
               this.setState({ brands });
           }
-          async create() {
-            const brand = (await axios.post('/api/icecream'));
-            const brands = [...this.state.brands, brand];
-            this.setState({ brands })
-          }
           render() {
               const brands = this.state.brands;
               return (
-                  <div id='main'>
-                    <h1>Sunsweet's Ice Cream Shop</h1>
-                    <button onClick={ this.create }>Add More Flavors!</button>
+                  <div>
+                    <h1 id='main'>Sunsweet's Ice Cream Shop</h1>
+                    <div id='navbar'>
+                      <h2>Brands</h2>
+                      <h2>Top Selling Flavors</h2>
+                    </div>
                     <ul>
                       {
                         brands.map( brand => {
                           return (
-                            <li>
-                              { brand.name }
-                            </li>
+                            <div id='items'>
+                            <li>{brand.name}</li>
+                            <li>{brand.flavor}</li>
+                            </div>
                           )
                         })
                       }

@@ -16,14 +16,6 @@ app.get('/api/icecream', async(req, res, next) => {
     }
 })
 
-app.post('/api/icecream/', async(req, res, next) => {
-    try {
-        res.send(await Brand.create({ name: req.body.name }))
-    }
-    catch(ex) {
-        next(ex)
-    }
-})
 
 const init = async() => {
     try {
