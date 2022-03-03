@@ -16,7 +16,7 @@ h2, li {
     justify-content: center;
     padding-inline-start: 40px;
     margin: 0 2.5rem 0 2.5rem;
-    border: 3px rgb(134, 24, 43) solid;
+    border: 6px rgb(134, 24, 43) solid;
     border-radius: 50% 50% 0 0;
 }
 
@@ -26,7 +26,7 @@ h2, li {
     margin: 0 2.5rem 0 2.5rem;
     font-size: larger;
     color: white;
-    border: 2.5px white solid;
+    border: 3px white solid;
     border-radius: 50% 50% 0 0;
 }
 
