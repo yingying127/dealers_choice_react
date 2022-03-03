@@ -5,6 +5,8 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel='stylesheet' href='/styles.css' />
+
     <title>Ice Cream Brands</title>
   </head>
   <body>
@@ -22,11 +24,17 @@
               const brands = response.data;
               this.setState({ brands });
           }
+          async create() {
+            const brand = (await axios.post('/api/icecream'));
+            const brands = [...this.state.brands, brand];
+            this.setState({ brands })
+          }
           render() {
               const brands = this.state.brands;
               return (
-                  <div>
-                    <h1>I Scream, You Scream, We All Scream for Ice Cream!</h1>
+                  <div id='main'>
+                    <h1>Sunsweet's Ice Cream Shop</h1>
+                    <button onClick={ this.create }>Add More Flavors!</button>
                     <ul>
                       {
                         brands.map( brand => {

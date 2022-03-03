@@ -7,6 +7,14 @@ const Brand = sequelize.define('brand', {
     }
 })
 
+const Flavor = sequelize.define('flavor', {
+    name: {
+        type: Sequelize.STRING,
+        defaultValue: 'strawberry'
+    },
+
+})
+
 const syncAndSeed = async() => {
     try {
         await sequelize.sync({ force: true })
